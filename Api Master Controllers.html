@@ -1,0 +1,78 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Mvc;
+
+using EmployeeDetailsAPI.Models;
+
+using System.Data.SqlClient;
+
+using System.Data;
+
+namespace EmployeeDetailsAPI.Controllers
+
+{
+
+    [ApiController]
+
+    [Route("api/[controller]/[action]")]
+
+    public class CityController : ControllerBase
+
+    {
+
+        [HttpGet(Name = "GetCity")]
+
+        public City GetCity()
+
+        {
+
+            string _connectionString = "Server=zdb-dev-mum01.zoiftspl.com;Initial Catalog=Trainee;User ID= trainee-user;Password=WeAreAmazing#2022";
+
+            SqlConnection connection = new SqlConnection();
+
+            connection.ConnectionString = _connectionString;
+
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "[felix].[sp_GetCities]";
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@StateID", 1);
+
+            command.Connection = connection;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+                                                                                                                                                              
+            
+            DataSet dataSet = new DataSet();
+
+            adapter.Fill(dataSet);
+
+            City city = new City();
+
+            if(dataSet != null && dataSet.Tables.Count>0 && dataSet.Tables[0].Rows.Count>0)
+
+            {
+
+                city.CityID = Convert.ToInt32(dataSet.Tables[0].Rows[0]["CitiesID"]);
+
+                city.CityName = Convert.ToString(dataSet.Tables[0].Rows[0]["Cities"]);
+
+                city.StateID = Convert.ToInt32(dataSet.Tables[0].Rows[0]["StatesID"]);
+
+            }
+
+            return city;
+
+        }
+
+    }
+
+}

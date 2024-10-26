@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/form.css"/> 
+<div class="top">
+      <U><B><h1>LOGIN FORM</h1></B></U>
+</head>
+    <body>
+<form>
+<div class="top">
+       <B> <label> USER NAME : </label></B>
+            <input type="text" id="txt_name" placeholder="Enter the Name"/>
+</div>
+<div class="top">
+       <B> <label>PASSWORD :</label></B>
+            <input type="text" id="txt_pass" placeholder="Enter the Password"/>
+</div>
+<div class="top">
+           <B> <input type="submit"value="Submit"/></B>
+</div>
+</div>
+</form>
+    </body>
+</html>        
+ 
+
+

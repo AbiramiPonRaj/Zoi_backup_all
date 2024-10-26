@@ -1,0 +1,31 @@
+CREATE TABLE ABIRAMI.tbl_Employess
+(
+EMPID INT IDENTITY(1,1) PRIMARY KEY
+,EmpName VARCHAR (75) NOT NULL
+,Salary DECIMAL (18,4) NOT NULL
+,IsActive BIT DEFAULT 1
+,CreatedBy VARCHAR(75)
+,CreatedOn DATETIME DEFAULT GETDATE()
+,ModifiedBy VARCHAR(75)
+,ModifiedOn DATETIME
+)
+
+
+(Insert):
+INSERT INTO ABIRAMI.tbl_Employess(EmpName)
+VALUES('ABIRAMI');
+
+
+SELECT *FROM users
+FROM table_Name
+
+(Top):
+SELECT TOP3 EmpCode,EmpName,Salary
+FROM tbl-Employees
+
+(count):
+
+SELECT COUNT(EmpId)As
+FROM tbl_Employees;
+
+

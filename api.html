@@ -1,0 +1,13 @@
+
+ dotnet new webapi -o VoiceDetectionAPI 
+ 
+  1. dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 5.0 
+  
+  2. dotnet add package Microsoft.EntityFrameworkCore -v 5.0 
+  
+  3. dotnet add package Microsoft.EntityFrameworkCore.Design -v 5.0 
+  
+  4. dotnet tool install -g dotnet-aspnet-codegenerator
+  
+  
+  dotnet aspnet-codegenerator controller -name VoiceController --relativeFolderPath Controllers
